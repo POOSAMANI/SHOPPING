@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Shopping Management System</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .banner {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+    .banner img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .banner-container {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+    .banner button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 100;
+    }
+    .banner .prev {
+      left: 10px;
+    }
+    .banner .next {
+      right: 10px;
+    }
+    .product-section {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .product img {
+      width: 170px;
+      height: 170px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+    .product img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="header-left">
+            <img src="logo.jpg" alt="Store Logo" class="logo">
+            <h1>Online Shopping Store</h1>
+        </div>
+        <div class="header-right">
+            <button id="profile-btn" onclick="location.href='profile.html'">👤 Profile</button>
+		<button id="logout-btn" onclick="logoutUser()">🚪 Logout</button>
+        </div>
+    </div>
+	<a href="h.html" id="specialLink"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="productss">
+        <a href="h.html" id="specialLink">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="DELL.html" id="specialLink">DELL</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="LENOVA.html" id="specialLink">LENOVA</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="HP.html" id="specialLink">HP</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="HCL.html" id="specialLink">HCL</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="aboutus.html" id="specialLink">about us</a>
+    </div>
+</header>
+<main>
+  <section class="banner">
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <div class="banner-container">
+      <img src="pic/banner1.webp" alt="Banner 1">
+      <img src="pic/banner2.webp" alt="Banner 2">
+      <img src="pic/banner3.webp" alt="Banner 3">
+    </div>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  </section>
+
+  <section class="product-section">
+    <div class="product">
+      <img src="pic/product1.jpg" alt="Product 1" onclick="location.href='home.html'">
+	  <h3>DELL</h3>
+    </div>
+    <div class="product">
+      <img src="pic/product2.jpg" alt="Product 2" onclick="location.href='jewellary.html'">
+	 <h3>LENOVA</h3> 
+    </div>
+	</section>
+	<section class="product-section">
+    <div class="product">
+      <img src="pic/product3.jpg" alt="Product 3" onclick="location.href='books.html'">
+	  <h3>HP</h3>
+    </div>
+	</div>
+    <div class="product">
+      <img src="pic/product4.jpg" alt="Product 4" onclick="location.href='kids.html'">
+	  <h3>HCL</h3>
+    </div>
+	</section>
+</main>
+ <script>
+  let index = 0;
+const slides = document.querySelector('.banner-container');
+const totalSlides = slides.children.length;
+
+// Function to move slides
+function moveSlide(step) {
+    index += step;
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// Auto-slide every 3 seconds
+setInterval(() => moveSlide(1), 3000);
+
+// Logout Functionality
+function logoutUser() {
+    alert("You have been logged out successfully.");
+    window.location.href = 'sign.php';
+}
+
+// Product Click Navigation
+document.querySelectorAll('.product img').forEach(img => {
+    img.addEventListener('click', () => {
+        const link = img.getAttribute('onclick').split("'")[1];
+        window.location.href = link;
+    });
+});
+
+</script>
+</body>
+</html>

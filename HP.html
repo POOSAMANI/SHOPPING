@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Shopping Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="header-left">
+            <img src="logo.jpg" alt="Store Logo" class="logo">
+            <h1>Online Shopping Store</h1>
+        </div>
+        <div class="header-right">
+            <button id="profile-btn" onclick="location.href='profile.html'">👤 Profile</button>
+		<button id="logout-btn" onclick="logoutUser()">🚪 Logout</button>
+<button id="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</button>
+        </div>
+    </div>
+	<a href="main.html" id="specialLink">_</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="productss">
+		<a href="main.html" id="specialLink">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="DELL.html" id="specialLink">DELL</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="LENOVA.html" id="specialLink">LENOVA</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="HP.html" id="specialLink">HP</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="HCL.html" id="specialLink">HCL</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="aboutus.html" id="specialLink">about us</a>
+    </div>
+</header>
+  <main>
+    <section class="products">
+      <div class="product">
+        <img src="pic/product9.jpg" alt="Product 1">
+        <h3>HP 1</h3>
+        <p>$150</p>
+        <button class="add-to-cart" data-product-id="1" data-product-name="HP 1" data-product-price="150">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="pic/product5.jpg" alt="Product 2">
+        <h3>HP 2</h3>
+        <p>$60</p>
+        <button class="add-to-cart" data-product-id="2" data-product-name="HP 2" data-product-price="60">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="pic/product6.jpg" alt="Product 3">
+        <h3>HP 3</h3>
+        <p>$700</p>
+        <button class="add-to-cart" data-product-id="3" data-product-name="HP 3" data-product-price="700">Add to Cart</button>
+      </div>
+    </section>
+<section class="products">
+      <div class="product">
+        <img src="pic/product7.jpg" alt="Product 1">
+        <h3>HP 4</h3>
+        <p>$1000</p>
+        <button class="add-to-cart" data-product-id="1" data-product-name="HP 4" data-product-price="1000">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="pic/product8.jpg" alt="Product 2">
+        <h3>HP 5</h3>
+        <p>$90</p>
+        <button class="add-to-cart" data-product-id="2" data-product-name="HP 5" data-product-price="90">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="pic/product9.jpg" alt="Product 3">
+        <h3>HP 6</h3>
+        <p>$600</p>
+        <button class="add-to-cart" data-product-id="3" data-product-name="DELL 6" data-product-price="600">Add to Cart</button>
+      </div>
+    </section>
+    <div id="cart" class="cart">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: $<span id="total-price">0</span></p>
+      <button id="checkout-btn">Checkout</button>
+    </div>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

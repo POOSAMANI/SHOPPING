@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Online Shopping Management System</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .about-container {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 50px;
+	  border-color: #ff7200;
+    }
+
+    .about-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .about-container p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .about-container h3 {
+      margin-top: 30px;
+      color: #444;
+    }
+
+    .comment-box {
+      margin-top: 30px;
+    }
+
+    .comment-box textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+    }
+
+    .comment-box button {
+      background-color: #000;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .comment-box button:hover {
+      background-color: #218838;
+    }
+
+    .comments-list {
+      margin-top: 20px;
+      padding: 10px;
+      border-top: 2px solid #ddd;
+    }
+
+    .comments-list p {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .contact-info a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="header-left">
+            <img src="logo.jpg" alt="Store Logo" class="logo">
+            <h1>Online Shopping Store</h1>
+        </div>
+        <div class="header-right">
+            <button id="profile-btn" onclick="location.href='profile.html'">👤 Profile</button>
+		<button id="logout-btn" onclick="logoutUser()">🚪 Logout</button>
+        </div>
+    </div>
+	<a href="main.html" id="specialLink"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="productss">
+        <a href="main.html" id="specialLink">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="DELL.html" id="specialLink">DELL</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="LENOVA.html" id="specialLink">LENOVA</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="HP.html" id="specialLink">HP</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="HCL.html" id="specialLink">HCL</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="aboutus.html" id="specialLink">about us</a>
+    </div>
+</header>
+<center>
+  <br><h1>About Us</h1>
+</center>
+
+<div class="about-container">
+  <h2>Welcome to Online Shopping Management System</h2>
+  <p>
+    Welcome to our Online Shopping Management System, your number one source for all your online shopping needs. 
+    We're dedicated to giving you the very best of products, with a focus on customer service, reliability, and convenience.
+  </p>
+  <h3>Our Story</h3>
+  <p>
+    Founded in 2025, our Online Shopping Management System has come a long way from its beginnings. 
+    When we first started out, our passion for helping customers find the best products drove us to do intense research and build a user-friendly platform, 
+    and gave us the impetus to turn hard work and inspiration into a booming online shopping platform.
+  </p>
+  
+  <h3>Our Mission</h3>
+  <p>
+    Our mission is to make shopping easy, accessible, and affordable for everyone. We aim to provide you with a seamless online shopping experience, 
+    ensuring quality products and fast delivery services.
+  </p>
+  
+  <h3>Why Choose Us?</h3>
+  <p>
+    ✔ Wide range of products <br>
+    ✔ Fast and secure delivery <br>
+    ✔ Excellent customer service <br>
+    ✔ Easy return and refund policy <br>
+  </p>
+
+  <h3>Contact Us</h3>
+  <p class="contact-info">
+    📧 Email: <a href="poosamani2005@gmail.com">poosamani2005@gmail.com</a><br>
+    📞 Phone: +91 6374407089<br>
+    📍 Address: Sivakasi, India
+  </p>
+
+  <h3>Customer Comments</h3>
+  <div class="comment-box">
+    <textarea id="comment" placeholder="Leave your comment here..."></textarea><br>
+    <button onclick="addComment()">Submit Comment</button>
+  </div>
+
+  <div class="comments-list" id="commentsList">
+    <!-- Comments will appear here -->
+  </div>
+</div>
+
+<footer>
+   
+            <h1>Contact Us</h1>
+            <li>Email: poosamani2005@gmail.com</li>
+            <li>Phone: +91 6374407089</li>
+            <li>Address: Sivakasi,India</li>
+       
+</footer>
+
+<script>
+  function addComment() {
+    const comment = document.getElementById('comment').value;
+    const commentList = document.getElementById('commentsList');
+
+    if (comment.trim() === '') {
+      alert('Please write a comment before submitting.');
+      return;
+    }
+
+    const newComment = document.createElement('p');
+    newComment.innerText = comment;
+    commentList.appendChild(newComment);
+
+    document.getElementById('comment').value = '';
+  }
+</script>
+
+</body>
+</html>
